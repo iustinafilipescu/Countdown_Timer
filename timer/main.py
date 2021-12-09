@@ -3,6 +3,7 @@ import threading
 import time
 from tkinter import *
 from tkinter import messagebox
+import random
 
 
 ecran = Tk()
@@ -98,6 +99,7 @@ def startCountdown():
             h = m // 60
             m = m % 60
 
+
         hours.set(str(h))
         minutes.set(str(m))
         seconds.set(str(s))
@@ -134,6 +136,16 @@ def pauseCountdown():
     global checkPAUSE
     checkPAUSE = 1
 
+def lucky():
+
+    ore=random.randint(0,60)
+    minute=random.randint(0,60)
+    secunde=random.randint(0,60)
+    hours.set(str(ore))
+    minutes.set(str(minute))
+    seconds.set(str(secunde))
+
+
 
 start = Button(ecran, text='START \nCOUNTDOWN', command=startCountdown, bd=8, bg="white",cursor="hand2")
 
@@ -149,5 +161,9 @@ reset.config(font=("Arial", 8, "bold"))
 pause = Button(ecran, text='PAUSE \nCOUNTDOWN', command=pauseCountdown, bd=8, bg="white",cursor="hand2")
 pause.grid(row=6, column=5)
 pause.config(font=("Arial", 8, "bold"))
+
+lucky = Button(ecran, text='LUCKY \nCOUNTDOWN', command=lucky, bd=8, bg="white",cursor="hand2")
+lucky.grid(row=7, column=5)
+lucky.config(font=("Arial", 8, "bold"))
 
 ecran.mainloop()
